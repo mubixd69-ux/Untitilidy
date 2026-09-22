@@ -8,7 +8,6 @@ size = Vector2(130, 13)
 
 [node name="Bag" type="Area2D" unique_id=1964959240]
 script = ExtResource("1_8dtae")
-speed = null
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=283368597]
 texture = ExtResource("1_6bjnb")

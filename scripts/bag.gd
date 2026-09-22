@@ -1,10 +1,14 @@
 extends Area2D
 
 @export var speed: float = 500.0
+@export var acceleration: float = 2500.0
+@export var friction: float = 2000.0
+
 @export var hud: Control
 
 var screen_size: Vector2
 var combo_count: int = 0
+var velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	area_entered.connect(_on_area_entered)
@@ -13,8 +17,16 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var direction = Input.get_axis("ui_left", "ui_right")
-	position.x += direction * speed * delta
 	
+	if direction != 0:
+		velocity.x = move_toward(velocity.x, direction * speed, acceleration * delta)
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, friction * delta)
+	
+	position.x += velocity.x * delta
+	
+	if position.x <= 50.0 or position.x >= screen_size.x - 50:
+		velocity.x = 0.0
 	position.x = clamp(position.x, 50.0, screen_size.x - 50.0)
 	
 func _on_area_entered(area: Area2D) -> void:
