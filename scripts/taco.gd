@@ -1,6 +1,7 @@
 extends Area2D
 
 signal missed
+signal caught
 
 var fall_speed = 200.0
 
@@ -15,4 +16,7 @@ func _process(delta):
 		queue_free()
 		
 func get_caught() -> void:
+	GameData.add_taco()
 	queue_free()
+	caught.emit()
+	
