@@ -1,8 +1,21 @@
 [gd_scene format=3 uid="uid://ciqukdn3f4v00"]
 
 [ext_resource type="Script" uid="uid://ckt0rxvitvgj5" path="res://scripts/spawner.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://clkgu8jwn7caf" path="res://scenes/bag.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://cc4o3k0ti6iyk" path="res://scenes/hud.tscn" id="3_sugp2"]
 
 [node name="main" type="Node2D" unique_id=879004149]
 
-[node name="TacoSpawner" type="Node2D" parent="." unique_id=1261658961]
+[node name="TacoSpawner" type="Node2D" parent="." unique_id=1261658961 node_paths=PackedStringArray("bag")]
 script = ExtResource("1_0wfyh")
+bag = NodePath("../Bag")
+
+[node name="Bag" parent="." unique_id=1964959240 node_paths=PackedStringArray("hud") instance=ExtResource("2_0wfyh")]
+position = Vector2(572, 577)
+hud = NodePath("../HUD")
+
+[node name="HUD" parent="." unique_id=846193636 instance=ExtResource("3_sugp2")]
+offset_left = -6.0
+offset_top = -4.0
+offset_right = -6.0
+offset_bottom = -4.0
