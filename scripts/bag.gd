@@ -46,7 +46,7 @@ func reset_combo() -> void:
 	
 func spawn_floating_text(amount: int, combo: int) -> void:
 	var popup = Label.new()
-	popup.set_script(load("res://FloatingText.gd"))
+	popup.set_script(load("res://scripts/FloatingText.gd"))
 	
 	var spawn_pos = global_position + Vector2(-10, -40)
 	
