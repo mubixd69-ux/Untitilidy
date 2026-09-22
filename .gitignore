@@ -24,3 +24,7 @@ addons/godot_super-wakatime/README.md
 addons/godot_super-wakatime/utils.gd
 addons/godot_super-wakatime/utils.gd.uid
 .gitattributes
+FloatingText.gd
+FloatingText.gd.uid
+hud.gd
+hud.gd.uid
