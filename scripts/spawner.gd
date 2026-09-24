@@ -1,6 +1,7 @@
 extends Node2D
 
 const TACO = preload("uid://oyjm4g70q2t7")
+const GOLDEN_TACO = preload("res://scenes/goldentaco.tscn")
 
 @export var bag: Area2D
 @export var ui: Control
@@ -9,12 +10,17 @@ func _ready() -> void:
 	spawn_tacos()
 
 func spawn_tacos() -> void:
-	var taco = TACO.instantiate()
-	taco.position = Vector2(
-		randf_range(50, 1150),
-		randf_range(-500, 0)
-	)
+	var taco
 	
+	
+	if randf() < 0.5:
+		taco = GOLDEN_TACO.instantiate()
+	else:
+		taco = TACO.instantiate()
+	taco.position = Vector2(
+	randf_range(50, get_viewport_rect().size.x - 50),
+	randf_range(-500, 0)
+)
 	if bag and "combo_count" in bag and taco.has_method("set_combo"):
 		taco.set_combo(bag.combo_count)
 	
