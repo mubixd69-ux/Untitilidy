@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://q21o424aio3m"]
 
-[ext_resource type="Script" uid="uid://b00662t5amjsw" path="res://scripts/sell_all_tacos.gd" id="1_p8umn"]
+[ext_resource type="Script" uid="uid://dgof5imxg0u2e" path="res://scripts/sell_all_tacos.gd" id="1_p8umn"]
 [ext_resource type="Script" uid="uid://chykt2wyf511y" path="res://scenes/button.gd" id="2_p8umn"]
+[ext_resource type="Script" uid="uid://d3et4lha8n47y" path="res://scripts/op.gd" id="3_d63j6"]
 
 [node name="Resturant" type="Node2D" unique_id=314803452]
 
@@ -25,4 +26,13 @@ offset_right = 8.0
 offset_bottom = 8.0
 script = ExtResource("2_p8umn")
 
+[node name="op" type="Button" parent="." unique_id=1819637977]
+offset_left = 103.0
+offset_top = 155.0
+offset_right = 218.0
+offset_bottom = 230.0
+text = "op nopi"
+script = ExtResource("3_d63j6")
+
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
+[connection signal="pressed" from="op" to="op" method="_on_pressed"]

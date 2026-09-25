@@ -1,8 +1,8 @@
 extends Area2D
 
 
-@export var speed: float = 500.0
-@export var acceleration: float = 2500.0
+@export var speed: float = 400
+@export var acceleration: float = 2000.0
 @export var friction: float = 2000.0
 
 @export var hud: Control

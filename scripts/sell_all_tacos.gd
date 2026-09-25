@@ -1,7 +1,6 @@
 extends Button
 
 @export var ui: Control
-var TacoCoin:float = 0
 var random_price:float = 2.0
 
 func _ready() -> void:
@@ -19,10 +18,9 @@ func _change_price():
 func _pressed() -> void:
 	var tacos_sold = GameData.taco_count
 	
-	TacoCoin += tacos_sold * random_price
-	print(tacos_sold)
-	print(random_price)
+	GameData.taco_coins += tacos_sold * random_price
 	GameData.taco_count = 0
 	
-	$"../money".text = str(TacoCoin)
+	if has_node("../money"):
+		$"../money".text = str(snapped(GameData.taco_coins, 0.01))
 	
