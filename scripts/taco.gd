@@ -5,15 +5,20 @@ signal caught
 
 @export var taco_value: int = 1
 @export var ignores_multiplier: bool = false
+@export var is_frozen_taco : bool = false
+@export var freezes_time := false
 
 var fall_speed = 200.0
-
+var speed_multiplier := 1.0
 
 func set_combo(combo: int):
 	fall_speed = min(200.0 + (combo * 35.0), 700)
 
+func slow_down(multiplier: float):
+	speed_multiplier = multiplier
+
 func _process(delta):
-	position.y += fall_speed * delta
+	position.y += fall_speed * speed_multiplier * delta
 	
 	if position.y > 700:
 		missed.emit()
@@ -25,5 +30,10 @@ func get_caught(multiplier: int = 1) -> void:
 	else:
 		GameData.add_taco(taco_value, multiplier)
 
-	queue_free()
+	if scene_file_path == "res://scenes/frozentaco.tscn":
+		var spawner = get_parent()
+		if spawner.has_method("activate_freeze"):
+			spawner.activate_freeze()
+
 	caught.emit()
+	queue_free()
