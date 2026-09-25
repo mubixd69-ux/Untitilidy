@@ -5,7 +5,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_h621j"]
 radius = 12.0415945
 
-[node name="GoldenTaco" type="Area2D" unique_id=1391137334]
+[node name="goldentaco" type="Area2D" unique_id=1391137334]
 script = ExtResource("1_j0etd")
 taco_value = 10
 ignores_multiplier = true
