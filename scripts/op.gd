@@ -1,6 +1,6 @@
 extends Button
 
-@export var cost: float = 10.0
+@export var cost: float = 1.0
 
 func _on_pressed() -> void:
 	if GameData.taco_coins >= cost:

@@ -8,7 +8,12 @@ const FROZEN_TACO = preload("res://scenes/frozentaco.tscn")
 @export var bag: Area2D
 @export var ui: Control
 
+var frozen_chance = 0.1
+var golden_chance = 0.1
+var spicy_chance = 0.2
+
 var freeze_active := false
+
 
 func _ready() -> void:
 	spawn_tacos()
@@ -21,11 +26,11 @@ func spawn_tacos() -> void:
 	if bag and "combo_count" in bag:
 		combo = bag.combo_count
 
-	if combo >= 5 and roll < 0.2:
+	if combo >= 5 and roll < frozen_chance:
 		taco = FROZEN_TACO.instantiate()
-	elif roll < 0.1:
+	elif roll < golden_chance:
 		taco = GOLDEN_TACO.instantiate()
-	elif roll < 0.3:
+	elif roll < spicy_chance:
 		taco = SPICY_TACO.instantiate()
 	else:
 		taco = TACO.instantiate()
