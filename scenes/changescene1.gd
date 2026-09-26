@@ -15,4 +15,6 @@ func _on_pressed() -> void:
 	$"../upgrade_frozen".visible = false
 	$"../upgrade_spicy".visible = false
 	$"../upgrade_gold".visible = false
+	$"../Resturant".visible = true
+	$"../Resturant/CanvasLayer2".visible = true
 	visible = false

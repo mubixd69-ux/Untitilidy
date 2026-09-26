@@ -10,8 +10,11 @@
 [ext_resource type="Script" uid="uid://dt431gigwdtis" path="res://scenes/hud.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://d3et4lha8n47y" path="res://scripts/op.gd" id="6_tefeu"]
 [ext_resource type="Script" uid="uid://dw0xiitg3euah" path="res://scripts/upgrade_frozen.gd" id="10_choun"]
+[ext_resource type="Script" uid="uid://chykt2wyf511y" path="res://scenes/button.gd" id="11_dp3eg"]
 [ext_resource type="Script" uid="uid://chp1au741bt6i" path="res://scripts/upgrade_spicy.gd" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://b3438yd0khfhq" path="res://scripts/upgrade_gold.gd" id="11_ya4ey"]
+[ext_resource type="Script" uid="uid://dgof5imxg0u2e" path="res://scripts/sell_all_tacos.gd" id="12_0ld40"]
+[ext_resource type="Texture2D" uid="uid://bf675jv26dg1l" path="res://Assets/basic black/button square idle.png" id="13_dp3eg"]
 [ext_resource type="PackedScene" uid="uid://dkbbp17c04y5p" path="res://scenes/parallax_background.tscn" id="13_trceg"]
 [ext_resource type="Script" uid="uid://b6tcuxm33e7r" path="res://scripts/freeze_overlay.gd" id="14_jkv2x"]
 [ext_resource type="Shader" uid="uid://bpbdp20c32crr" path="res://scripts/main.gdshader" id="15_jbj1t"]
@@ -77,7 +80,41 @@ text = "Pro pi popi"
 script = ExtResource("3_tipki")
 
 [node name="Resturant" parent="." unique_id=314803452 instance=ExtResource("1_tefeu")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Resturant" unique_id=1259572738]
 visible = false
+
+[node name="money" type="Label" parent="Resturant/CanvasLayer2" unique_id=1081005272]
+z_index = 1
+offset_left = 337.0
+offset_top = 57.0
+offset_right = 686.0
+offset_bottom = 240.0
+
+[node name="Button" type="Button" parent="Resturant/CanvasLayer2" unique_id=1174714331]
+offset_left = 50.0
+offset_top = 144.0
+offset_right = 284.0
+offset_bottom = 263.0
+script = ExtResource("11_dp3eg")
+
+[node name="Sell all tacos" type="Button" parent="Resturant/CanvasLayer2" unique_id=44864811]
+offset_left = 54.0
+offset_top = 37.0
+offset_right = 279.0
+offset_bottom = 143.0
+text = "Sell all
+"
+script = ExtResource("12_0ld40")
+
+[node name="TextureRect" type="TextureRect" parent="Resturant/CanvasLayer2" unique_id=2048051485]
+z_index = -1
+offset_left = -169.0
+offset_top = -201.0
+offset_right = 1320.0
+offset_bottom = 804.0
+mouse_filter = 2
+texture = ExtResource("13_dp3eg")
 
 [node name="upgrade_frozen" type="Button" parent="." unique_id=1602698884]
 offset_left = 193.0
@@ -120,6 +157,7 @@ mouse_filter = 2
 [connection signal="pressed" from="op" to="op" method="_on_pressed"]
 [connection signal="pressed" from="hacka" to="hacka" method="_on_pressed"]
 [connection signal="pressed" from="pro" to="pro" method="_on_pressed"]
+[connection signal="pressed" from="Resturant/CanvasLayer2/Button" to="Resturant/CanvasLayer2/Button" method="_on_pressed"]
 [connection signal="pressed" from="upgrade_frozen" to="upgrade_frozen" method="_on_pressed"]
 [connection signal="pressed" from="upgrade_spicy" to="upgrade_spicy" method="_on_pressed"]
 [connection signal="pressed" from="upgrade_gold" to="upgrade_gold" method="_on_pressed"]
