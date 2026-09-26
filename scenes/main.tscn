@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dw0xiitg3euah" path="res://scripts/upgrade_frozen.gd" id="10_choun"]
 [ext_resource type="Script" uid="uid://chp1au741bt6i" path="res://scripts/upgrade_spicy.gd" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://b3438yd0khfhq" path="res://scripts/upgrade_gold.gd" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://dkbbp17c04y5p" path="res://scenes/parallax_background.tscn" id="13_trceg"]
 
 [node name="main" type="Node2D" unique_id=879004149]
 
@@ -90,6 +91,8 @@ offset_right = 276.0
 offset_bottom = 156.0
 text = "gold"
 script = ExtResource("11_ya4ey")
+
+[node name="ParallaxBackground" parent="." unique_id=1443026022 instance=ExtResource("13_trceg")]
 
 [connection signal="pressed" from="Change scene" to="Change scene" method="_on_pressed"]
 [connection signal="pressed" from="op" to="op" method="_on_pressed"]

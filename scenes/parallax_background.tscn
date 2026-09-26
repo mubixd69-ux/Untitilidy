@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dkbbp17c04y5p"]
+
+[ext_resource type="Script" uid="uid://dqk7xfbdukpsv" path="res://scripts/parallax_background.gd" id="1_ljpgv"]
+[ext_resource type="Texture2D" uid="uid://bv1yodbj8iiea" path="res://Assets/space.png" id="1_r7lvs"]
+[ext_resource type="Texture2D" uid="uid://b6ruqkd3p0pvo" path="res://far_stars.png" id="2_ljpgv"]
+[ext_resource type="Texture2D" uid="uid://dix85y5ny2y6x" path="res://close_stars.png" id="3_bpahb"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" unique_id=1443026022]
+script = ExtResource("1_ljpgv")
+
+[node name="SpaceLayer" type="ParallaxLayer" parent="." unique_id=1094140202]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 648)
+
+[node name="Space" type="TextureRect" parent="SpaceLayer" unique_id=761296675]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_r7lvs")
+stretch_mode = 1
+
+[node name="FarStarsLayer" type="ParallaxLayer" parent="." unique_id=404236622]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 648)
+
+[node name="FarStars" type="TextureRect" parent="FarStarsLayer" unique_id=1176303921]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_ljpgv")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseStarsLayer" type="ParallaxLayer" parent="." unique_id=1950211831]
+unique_name_in_owner = true
+motion_mirroring = Vector2(0, 648)
+
+[node name="CloseStars" type="TextureRect" parent="CloseStarsLayer" unique_id=1000974468]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_bpahb")
+stretch_mode = 1
