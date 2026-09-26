@@ -13,8 +13,19 @@
 [ext_resource type="Script" uid="uid://chp1au741bt6i" path="res://scripts/upgrade_spicy.gd" id="11_eb6dy"]
 [ext_resource type="Script" uid="uid://b3438yd0khfhq" path="res://scripts/upgrade_gold.gd" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://dkbbp17c04y5p" path="res://scenes/parallax_background.tscn" id="13_trceg"]
+[ext_resource type="Script" uid="uid://b6tcuxm33e7r" path="res://scripts/freeze_overlay.gd" id="14_jkv2x"]
+[ext_resource type="Shader" uid="uid://bpbdp20c32crr" path="res://scripts/main.gdshader" id="15_jbj1t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e6q6n"]
+shader = ExtResource("15_jbj1t")
+shader_parameter/ice_color = Color(0.4, 0.85, 1, 0.85)
+shader_parameter/inner_radius = 0.450000021375
+shader_parameter/outer_radius = 0.800000038
+shader_parameter/opacity = 0.0
 
 [node name="main" type="Node2D" unique_id=879004149]
+
+[node name="ParallaxBackground" parent="." unique_id=1443026022 instance=ExtResource("13_trceg")]
 
 [node name="TacoSpawner" type="Node2D" parent="." unique_id=1261658961 node_paths=PackedStringArray("bag", "ui")]
 unique_name_in_owner = true
@@ -27,10 +38,10 @@ position = Vector2(572, 577)
 hud = NodePath("../HUD")
 
 [node name="HUD" parent="." unique_id=846193636 instance=ExtResource("3_sugp2")]
-offset_left = -6.0
-offset_top = -4.0
-offset_right = -6.0
-offset_bottom = -4.0
+offset_left = -8.0
+offset_top = -3.0
+offset_right = -8.0
+offset_bottom = -3.0
 script = ExtResource("4_tbgi4")
 
 [node name="Change scene" type="Button" parent="." unique_id=1521850587]
@@ -92,7 +103,18 @@ offset_bottom = 156.0
 text = "gold"
 script = ExtResource("11_ya4ey")
 
-[node name="ParallaxBackground" parent="." unique_id=1443026022 instance=ExtResource("13_trceg")]
+[node name="FreezeOverlay" type="CanvasLayer" parent="." unique_id=1287071957]
+unique_name_in_owner = true
+script = ExtResource("14_jkv2x")
+
+[node name="ColorRect" type="ColorRect" parent="FreezeOverlay" unique_id=645675220]
+material = SubResource("ShaderMaterial_e6q6n")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="pressed" from="Change scene" to="Change scene" method="_on_pressed"]
 [connection signal="pressed" from="op" to="op" method="_on_pressed"]

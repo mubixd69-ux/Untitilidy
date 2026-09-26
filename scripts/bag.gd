@@ -33,6 +33,10 @@ func _process(delta: float) -> void:
 	
 func _on_area_entered(area: Area2D) -> void:
 	if area.has_method("get_caught"):
+		if GameData.is_bag_full():
+			spawn_bag_full_text()
+			area.get_caught(0)
+			return
 		combo_count += 1
 
 		var multipliar = 1
@@ -43,10 +47,11 @@ func _on_area_entered(area: Area2D) -> void:
 			multipliar= 3
 		elif combo_count >= 5:
 			multipliar= 2
-
+		
+		
 		area.get_caught(multipliar)
-
-		if hud:
+		
+		if hud and hud.has_method("update_tacos"):
 			hud.update_tacos()
 
 		spawn_floating_text(multipliar, combo_count)
@@ -62,3 +67,15 @@ func spawn_floating_text(amount: int, combo: int) -> void:
 	get_tree().current_scene.add_child(popup)
 	
 	popup.start(amount, combo, spawn_pos)
+	
+func spawn_bag_full_text() -> void:
+	var popup = Label.new()
+	popup.text = "BAG FULL!"
+	popup.modulate = Color(1.542, 0.0, 0.0, 0.2)
+	popup.global_position = global_position + Vector2(-30, -50)
+	get_tree().current_scene.add_child(popup)
+	
+	var tween = create_tween()
+	tween.tween_property(popup, "position:y", popup.position.y - 30, 0.5)
+	tween.parallel().tween_property(popup, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(popup.queue_free)

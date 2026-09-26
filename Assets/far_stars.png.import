@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dix85y5ny2y6x"
-path="res://.godot/imported/close_stars.png-fc8e17e1eba7f33d538fbad9b2407225.ctex"
+uid="uid://b6ruqkd3p0pvo"
+path="res://.godot/imported/far_stars.png-2739bf74ab44c58fd4c6da0adfd97b8c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://close_stars.png"
-dest_files=["res://.godot/imported/close_stars.png-fc8e17e1eba7f33d538fbad9b2407225.ctex"]
+source_file="res://Assets/far_stars.png"
+dest_files=["res://.godot/imported/far_stars.png-2739bf74ab44c58fd4c6da0adfd97b8c.ctex"]
 
 [params]
 

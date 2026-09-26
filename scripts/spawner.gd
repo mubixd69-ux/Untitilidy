@@ -53,7 +53,11 @@ func spawn_tacos() -> void:
 
 func activate_freeze() -> void:
 	freeze_active = true
-
+	
+	var freeze_overlay = get_node_or_null("%FreezeOverlay")
+	if freeze_overlay and freeze_overlay.has_method("trigger_freeze_effect"):
+		freeze_overlay.trigger_freeze_effect(5.0)
+	
 	await get_tree().create_timer(5.0).timeout
 
 	freeze_active = false
